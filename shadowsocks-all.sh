@@ -585,7 +585,7 @@ install_select() {
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Please enter a number (Default ${software[0]}):" selected
+    read -p "Please enter a number (Default ${software[3]}):" selected
     [ -z "${selected}" ] && selected="4"
     case "${selected}" in
         1|2|3|4)
@@ -603,7 +603,7 @@ install_select() {
 
 install_prepare_password() {
     echo "Please enter password for ${software[${selected}-1]}"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
+    read -p "(Default password: 6501903):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd="6501903"
     echo
     echo "password = ${shadowsockspwd}"
@@ -613,7 +613,7 @@ install_prepare_password() {
 install_prepare_port() {
     while true
     do
-    dport=$(shuf -i 9000-19999 -n 1)
+    dport=$(shuf -i 10000-19999 -n 1)
     echo -e "Please enter a port for ${software[${selected}-1]} [1-65535]"
     read -p "(Default port: ${dport}):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
